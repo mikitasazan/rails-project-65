@@ -120,12 +120,6 @@ ru:
         reject: Вернуть
         archive: В архив
         confirm: Подтвердите действие
-    profiles:
-      show:
-        title: Мои объявления
-    admin_home:
-      index:
-        title: Админка
     users:
       new:
         title: Заполните данные

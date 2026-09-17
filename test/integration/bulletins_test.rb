@@ -33,6 +33,11 @@ class BulletinsTest < ActionDispatch::IntegrationTest
     saved = Bulletin.find_by!(title: "Продам гараж")
     assert { saved.user == users(:regular) }
     assert { saved.image.attached? }
+
+    get profile_path
+    assert_response :success
+    assert { @response.body.include?("Продам гараж") }
+    assert { @response.body.include?("На модерацию") }
   end
 
   test "#create without image fails" do
