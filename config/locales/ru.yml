@@ -16,6 +16,27 @@ ru:
         signed_in_user_only: Только для авторизованных пользователей
         admins_only: Только для администраторов
         not_authorized: Недостаточно прав
+  activerecord:
+    models:
+      bulletin: Объявление
+      category: Категория
+    attributes:
+      bulletin:
+        title: Заголовок
+        description: Описание
+        category: Категория
+        image: Фотография
+        state: Состояние
+      category:
+        name: Название
+  helpers:
+    submit:
+      bulletin:
+        create: Создать объявление
+        update: Сохранить объявление
+      category:
+        create: Создать категорию
+        update: Сохранить категорию
   web:
     auth:
       callback:
@@ -26,6 +47,32 @@ ru:
       index:
         bulletins: Объявления
         empty: Объявлений пока нет
+      show:
+        all_bulletins: Все объявления
+      new:
+        new_bulletin: Новое объявление
+      edit:
+        edit_bulletin: Редактирование объявления
+      create:
+        success: Объявление создано
+      update:
+        success: Объявление обновлено
+      to_moderate:
+        success: Объявление отправлено на модерацию
+        failure: Нельзя отправить
+      archive:
+        success: Объявление в архиве
+        failure: Нельзя архивировать
+    profiles:
+      show:
+        title: Мои объявления
+        my_bulletins: Мои объявления
+        add_bulletin: Добавить
+        name: Название
+        state: Состояние
+        actions: Действия
+        show: Показать
+        edit: Редактировать
     profiles:
       show:
         title: Мои объявления

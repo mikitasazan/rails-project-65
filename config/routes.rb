@@ -9,7 +9,12 @@ Rails.application.routes.draw do
     resources :users, only: %i[new]
     resource :profile, only: %i[show]
 
-    resources :bulletins, only: %i[index new]
+    resources :bulletins, only: %i[index new create show edit update] do
+      member do
+        patch :to_moderate
+        patch :archive
+      end
+    end
 
     namespace :admin do
       root "home#index"

@@ -37,6 +37,7 @@ gem "json", "< 3"
 # Bulletins: state machine, search, image uploads
 gem "aasm"
 gem "ransack"
+gem "active_storage_validations"
 
 # Error tracking
 gem "sentry-ruby"

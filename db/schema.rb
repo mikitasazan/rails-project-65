@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_17_225236) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_17_225910) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -39,6 +39,25 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_17_225236) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "bulletins", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.string "state", default: "draft", null: false
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["category_id"], name: "index_bulletins_on_category_id"
+    t.index ["user_id"], name: "index_bulletins_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "name"
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.boolean "admin"
     t.datetime "created_at", null: false
@@ -49,4 +68,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_17_225236) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bulletins", "categories"
+  add_foreign_key "bulletins", "users"
 end

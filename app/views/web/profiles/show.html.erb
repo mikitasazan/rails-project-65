@@ -1,3 +1,28 @@
-% content_for :title, t("profiles.show.title") %>
+<% content_for :title, t(".my_bulletins") %>
 
-<h1 class="mb-6 text-2xl font-bold"><%= t("profiles.show.title") %></h1>
+<%= link_to t(".add_bulletin"), new_bulletin_path, class: "text-blue-600 hover:underline" %>
+
+<table class="mt-4 w-full text-left">
+  <thead>
+    <tr>
+      <th scope="col" class="border-b border-gray-200 py-2 font-medium"><%= t(".name") %></th>
+      <th scope="col" class="border-b border-gray-200 py-2 font-medium"><%= t(".state") %></th>
+      <th scope="col" class="border-b border-gray-200 py-2 font-medium"><%= t(".actions") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bulletins.each do |bulletin| %>
+      <tr>
+        <td class="border-b border-gray-100 py-2"><%= bulletin.title %></td>
+        <td class="border-b border-gray-100 py-2"><%= bulletin.state %></td>
+        <td class="border-b border-gray-100 py-2">
+          <div class="flex flex-wrap gap-2">
+            <%= link_to t(".show"), bulletin_path(bulletin), class: "text-blue-600 hover:underline" %>
+            <%= link_to t(".edit"), edit_bulletin_path(bulletin), class: "text-blue-600 hover:underline" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

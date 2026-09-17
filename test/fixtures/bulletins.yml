@@ -1,0 +1,13 @@
+published:
+  title: Продам велосипед
+  description: Почти новый велосипед, катался один сезон.
+  state: published
+  category: one
+  user: regular
+
+draft:
+  title: Отдам котят
+  description: Котята в добрые руки, лоток знают.
+  state: draft
+  category: two
+  user: regular

@@ -1,3 +1,15 @@
 <% content_for :title, t(".bulletins") %>
 
-<p class="text-gray-500"><%= t(".empty") %></p>
+<div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+  <% @bulletins.each do |bulletin| %>
+    <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+      <div class="p-4">
+        <%= link_to bulletin_path(bulletin) do %>
+          <h5 class="font-medium hover:underline"><%= bulletin.title %></h5>
+        <% end %>
+
+        <p class="mt-2 text-sm text-gray-500"><%= distance_of_time_in_words_to_now(bulletin.created_at) %></p>
+      </div>
+    </article>
+  <% end %>
+</div>
