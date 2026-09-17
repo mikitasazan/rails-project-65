@@ -10,8 +10,36 @@ class Bulletin < ApplicationRecord
   validates :description, presence: true, length: { maximum: 1000 }
   validates :image, attached: true, content_type: %i[png jpg jpeg], size: { less_than: 5.megabytes }
 
-  enum :state, { draft: "draft", under_moderation: "under_moderation", published: "published",
-                 rejected: "rejected", archived: "archived" }, prefix: true
+  include AASM
+
+  aasm column: :state do
+    state :draft, initial: true
+    state :under_moderation, :rejected, :archived, :published
+
+    event :to_moderate do
+      transitions from: :draft, to: :under_moderation
+    end
+
+    event :reject do
+      transitions from: :under_moderation, to: :rejected
+    end
+
+    event :archive do
+      transitions from: %i[under_moderation rejected draft published], to: :archived
+    end
+
+    event :publish do
+      transitions from: :under_moderation, to: :published
+    end
+  end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[category_id created_at description id state title updated_at user_id]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[category]
+  end
 
   scope :published, -> { where(state: :published) }
 end

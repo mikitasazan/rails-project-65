@@ -26,7 +26,12 @@ ru:
         description: Описание
         category: Категория
         image: Фотография
-        state: Состояние
+        state:
+          draft: Черновик
+          under_moderation: На модерации
+          published: Опубликовано
+          rejected: Возвращено
+          archived: В архиве
       category:
         name: Название
   helpers:
@@ -73,6 +78,9 @@ ru:
         actions: Действия
         show: Показать
         edit: Редактировать
+        to_moderate: На модерацию
+        archive: В архив
+        confirm_archive: Отправить объявление в архив?
     profiles:
       show:
         title: Мои объявления
