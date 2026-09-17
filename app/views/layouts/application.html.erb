@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class="h-full">
+  <head>
+    <title><%= content_for(:title) || t("layouts.application.app_name") %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module", defer: true %>
+  </head>
+
+  <body class="flex min-h-full flex-col bg-gray-50 text-gray-900">
+    <nav class="mx-auto flex w-full max-w-5xl flex-wrap items-center gap-4 border-b border-gray-200 px-4 py-3">
+      <%= link_to t("layouts.application.app_name"), root_path, class: "mr-auto text-lg font-bold hover:underline" %>
+    </nav>
+
+    <main class="mx-auto my-6 w-full max-w-5xl flex-1 px-4">
+      <%= yield %>
+    </main>
+
+    <footer class="mx-auto w-full max-w-5xl px-4 py-6 text-sm text-gray-500">
+      <p><%= t("layouts.application.footer") %></p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+/vendor/bundle
+/vendor/broadcast
+/tmp
+/log
+/storage
+/.bundle
+/config/master.key
+/app/assets/builds
+/node_modules
+/.env
+.DS_Store
+*~
