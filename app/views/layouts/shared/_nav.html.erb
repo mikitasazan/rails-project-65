@@ -1,0 +1,26 @@
+<nav class="mx-auto flex w-full max-w-5xl flex-wrap items-center gap-4 border-b border-gray-200 px-4 py-3">
+  <%= link_to t("layouts.application.app_name"), root_path, class: "mr-auto text-lg font-bold hover:underline" %>
+
+  <ul class="flex flex-1 flex-wrap items-center gap-4">
+    <% if signed_in? %>
+      <li><%= link_to t(".my_bulletins"), profile_path, class: "font-medium hover:underline" %></li>
+      <li><%= link_to t(".add_bulletin"), new_bulletin_path, class: "font-medium hover:underline" %></li>
+    <% end %>
+  </ul>
+
+  <ul class="flex flex-wrap items-center gap-4">
+    <% if signed_in? && current_user.admin? %>
+      <li><%= link_to t(".admin"), admin_root_path, class: "font-medium hover:underline" %></li>
+    <% end %>
+
+    <li>
+      <% if signed_in? %>
+        <%= button_to t(".sign_out"), auth_logout_path, method: :delete, data: { turbo: false },
+                      class: "cursor-pointer font-medium hover:underline" %>
+      <% else %>
+        <%= button_to t(".login"), auth_request_path("github"), method: :post, data: { turbo: false },
+                      class: "cursor-pointer font-medium hover:underline" %>
+      <% end %>
+    </li>
+  </ul>
+</nav>

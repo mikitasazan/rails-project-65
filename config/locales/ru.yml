@@ -4,6 +4,37 @@ ru:
     application:
       app_name: Доска объявлений
       footer: Доска объявлений — учебный проект
+    shared:
+      nav:
+        my_bulletins: Мои объявления
+        add_bulletin: Добавить
+        admin: Админка
+        sign_out: Выйти
+        login: Войти
+    web:
+      flash:
+        signed_in_user_only: Только для авторизованных пользователей
+        admins_only: Только для администраторов
+        not_authorized: Недостаточно прав
+  web:
+    auth:
+      callback:
+        success: Вы вошли в систему
+      logout:
+        success: Вы вышли из системы
+    bulletins:
+      index:
+        bulletins: Объявления
+        empty: Объявлений пока нет
+    profiles:
+      show:
+        title: Мои объявления
+    admin_home:
+      index:
+        title: Админка
+    users:
+      new:
+        title: Заполните данные
   date:
     abbr_day_names:
     - Вс

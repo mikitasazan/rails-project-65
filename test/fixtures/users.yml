@@ -1,0 +1,9 @@
+regular:
+  name: Regular User
+  email: regular@test.com
+  admin: false
+
+admin:
+  name: Admin User
+  email: admin@test.com
+  admin: true
