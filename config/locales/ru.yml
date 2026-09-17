@@ -42,6 +42,25 @@ ru:
       category:
         create: Создать категорию
         update: Сохранить категорию
+  admin:
+    categories:
+      index:
+        categories: Категории
+        add_category: Добавить категорию
+        name: Название
+        actions: Действия
+        edit: Редактировать
+      new:
+        new_category: Новая категория
+      edit:
+        edit_category: Редактирование категории
+      create:
+        success: Категория создана
+      update:
+        success: Категория обновлена
+      destroy:
+        success: Категория удалена
+        has_bulletins: У категории есть объявления
   web:
     auth:
       callback:
@@ -68,6 +87,18 @@ ru:
       archive:
         success: Объявление в архиве
         failure: Нельзя архивировать
+    admin_home:
+      index:
+        title: Объявления на модерации
+        name: Название
+        actions: Действия
+        publish: Опубликовать
+        reject: Вернуть
+        archive: В архив
+        confirm: Подтвердите действие
+    bulletins:
+      admin_index:
+        bulletins: Все объявления
     profiles:
       show:
         title: Мои объявления
@@ -81,6 +112,18 @@ ru:
         to_moderate: На модерацию
         archive: В архив
         confirm_archive: Отправить объявление в архив?
+    admin_home:
+      index:
+        title: Объявления на модерации
+        name: Название
+        actions: Действия
+        publish: Опубликовать
+        reject: Вернуть
+        archive: В архив
+        confirm: Подтвердите действие
+    bulletins:
+      admin_index:
+        bulletins: Все объявления
     profiles:
       show:
         title: Мои объявления
@@ -209,6 +252,7 @@ ru:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      record_invalid: 'Возникли ошибки: %{errors}'
       blank: не может быть пустым
       taken: уже существует
       too_long: слишком большой длины (не может быть больше чем %{count} символов)

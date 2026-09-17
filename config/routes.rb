@@ -18,6 +18,15 @@ Rails.application.routes.draw do
 
     namespace :admin do
       root "home#index"
+
+      resources :categories
+      resources :bulletins, only: %i[index] do
+        member do
+          patch :publish
+          patch :archive
+          patch :reject
+        end
+      end
     end
   end
 end

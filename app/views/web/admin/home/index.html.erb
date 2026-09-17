@@ -1,3 +1,36 @@
-<% content_for :title, t("admin_home.index.title") %>
+<% content_for :title, t(".title") %>
 
-<h1 class="mb-6 text-2xl font-bold">Админка</h1>
+<table class="mt-4 w-full text-left">
+  <thead>
+    <tr>
+      <th scope="col" class="border-b border-gray-200 py-2 font-medium"><%= t(".name") %></th>
+      <th scope="col" class="border-b border-gray-200 py-2 font-medium"><%= t(".actions") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bulletins.each do |bulletin| %>
+      <tr>
+        <td class="border-b border-gray-100 py-2">
+          <%= link_to bulletin.title, bulletin_path(bulletin), class: "text-blue-600 hover:underline" %>
+        </td>
+
+        <td class="border-b border-gray-100 py-2">
+          <div class="flex flex-wrap gap-2">
+            <%= button_to t(".publish"), publish_admin_bulletin_path(bulletin), method: :patch,
+                          form: { data: { turbo_confirm: t(".confirm") } },
+                          class: "cursor-pointer text-blue-600 hover:underline" %>
+
+            <%= button_to t(".reject"), reject_admin_bulletin_path(bulletin), method: :patch,
+                          form: { data: { turbo_confirm: t(".confirm") } },
+                          class: "cursor-pointer text-blue-600 hover:underline" %>
+
+            <%= button_to t(".archive"), archive_admin_bulletin_path(bulletin), method: :patch,
+                          form: { data: { turbo_confirm: t(".confirm") } },
+                          class: "cursor-pointer text-red-600 hover:underline" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

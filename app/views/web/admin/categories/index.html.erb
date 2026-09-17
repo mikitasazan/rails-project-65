@@ -1,0 +1,25 @@
+<% content_for :title, t(".categories") %>
+
+<%= link_to t(".add_category"), new_admin_category_path,
+            class: "inline-block rounded-md bg-blue-600 px-3.5 py-2.5 font-medium text-white hover:bg-blue-500" %>
+
+<table class="mt-4 w-full text-left">
+  <thead>
+    <tr>
+      <th scope="col" class="border-b border-gray-200 py-2 font-medium"><%= t(".name") %></th>
+      <th scope="col" class="border-b border-gray-200 py-2 font-medium"><%= t(".actions") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td class="border-b border-gray-100 py-2"><%= category.name %></td>
+
+        <td class="border-b border-gray-100 py-2">
+          <%= link_to t(".edit"), edit_admin_category_path(category), class: "text-blue-600 hover:underline" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
