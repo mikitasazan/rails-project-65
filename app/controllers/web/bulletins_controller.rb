@@ -4,7 +4,9 @@ class Web::BulletinsController < Web::ApplicationController
   before_action :require_signed_in_user!, only: %i[new create edit update to_moderate archive]
 
   def index
-    @bulletins = Bulletin.published.order(created_at: :desc)
+    @categories = Category.order(:name)
+    @q = Bulletin.ransack(params[:q])
+    @bulletins = @q.result.published.includes(:category, :user).order(created_at: :desc)
   end
 
   def show

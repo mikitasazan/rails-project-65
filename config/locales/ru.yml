@@ -71,6 +71,8 @@ ru:
       index:
         bulletins: Объявления
         empty: Объявлений пока нет
+        search: Искать
+        reset: Сброс
       show:
         all_bulletins: Все объявления
       new:
@@ -96,9 +98,6 @@ ru:
         reject: Вернуть
         archive: В архив
         confirm: Подтвердите действие
-    bulletins:
-      admin_index:
-        bulletins: Все объявления
     profiles:
       show:
         title: Мои объявления
@@ -121,9 +120,6 @@ ru:
         reject: Вернуть
         archive: В архив
         confirm: Подтвердите действие
-    bulletins:
-      admin_index:
-        bulletins: Все объявления
     profiles:
       show:
         title: Мои объявления

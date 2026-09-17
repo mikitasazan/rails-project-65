@@ -47,6 +47,6 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
   private
 
   def category_params
-    params.expect(category: [:name])
+    params.expect(category: %i[name])
   end
 end

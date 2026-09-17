@@ -1,5 +1,24 @@
 <% content_for :title, t(".bulletins") %>
 
+<div class="rounded-md bg-gray-100 p-3">
+  <%= search_form_for @q do |form| %>
+    <div class="flex flex-wrap items-center gap-2">
+      <%= form.search_field :title_cont,
+                            class: "grow rounded-md border border-gray-400 px-3 py-2 shadow-sm focus:outline-blue-600" %>
+
+      <%= form.select :category_id_eq, @categories.map { |category| [category.name, category.id] },
+                      { include_blank: true },
+                      class: "rounded-md border border-gray-400 px-3 py-2 shadow-sm focus:outline-blue-600" %>
+
+      <%= form.submit t(".search"),
+                      class: "cursor-pointer rounded-md bg-blue-600 px-3.5 py-2.5 font-medium text-white hover:bg-blue-500" %>
+
+      <%= link_to t(".reset"), root_path,
+                  class: "rounded-md border border-blue-600 px-3.5 py-2.5 font-medium text-blue-600 hover:bg-blue-50" %>
+    </div>
+  <% end %>
+</div>
+
 <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
   <% @bulletins.each do |bulletin| %>
     <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
